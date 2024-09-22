@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .assignment-status {
+            font-weight: bold;
+        }
+
+        .button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Student Dashboard</h1>
+        <h2>Assignments:</h2>
+        <ul class="list-group">
+            {% for assignment in assignments %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    {{ assignment.title }} <small class="text-muted">({{ assignment.teacher.username }})</small>
+                </span>
+                <span>
+                    {% if assignment.submitted %}
+                    <span class="assignment-status text-success">Submitted</span>
+                    {% else %}
+                    <a href="{{ url_for('edit_assignment', assignment_id=assignment.id) }}"
+                        class="btn btn-primary btn-sm">Edit</a>
+                    {% endif %}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+        <h2 class="mt-4">Draft Assignments:</h2>
+        <ul class="list-group">
+            {% for draft_assignment in draft_assignments %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ draft_assignment.title }}</span>
+                <a href="{{ url_for('edit_assignment', assignment_id=draft_assignment.id) }}"
+                    class="btn btn-primary btn-sm">Edit</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="text-center">
+            <a href="{{url_for('create_assignment')}}" class="btn btn-success button">Create Assignment</a>
+        </p>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

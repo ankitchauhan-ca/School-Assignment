@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Teacher Dashboard</title>
+</head>
+
+<body>
+    <h1>Teacher Dashboard</h1>
+    <h2>Assignments:</h2>
+    <ul>
+        {% for assignment in assignments %}
+        <li>{{ assignment.title }} ({{ assignment.student.username }})</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
