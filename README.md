@@ -15,7 +15,8 @@ This repository contains the credentials for different users in the system. All 
 ## Notes
 
 - All users share the same password: `root12`.
-- Ensure to change the password after the first login for security reasons.
+- These is only example file.
+- **Note:** I am not using headers, so please go back manually.
 
 ## Usage
 
@@ -26,10 +27,6 @@ To log in, use the following credentials based on your role:
 - **Teacher2**: `Teacher2`
 - **Student1**: `Student1`
 - **Student2**: `Student2`
-
-## Security
-
-Please remember to update your password after the initial login to maintain security.
 
 ---
 
